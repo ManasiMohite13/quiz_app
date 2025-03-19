@@ -42,9 +42,24 @@ body{
     text-align: left;
     border-radius: 0.5rem;
     cursor: pointer;
+    transform: all 0.3s;
+}
+.btn:hover{
+    background: #222;
+    color: #fff;
 }
 
-
+#next-btn{
+    background: #001e4d;
+    color: #fff;
+    font-weight: 400;
+    width: 6rem;
+    border: 0;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    /* display: none; */
+}
 
 
 
