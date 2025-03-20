@@ -80,6 +80,7 @@ function showQuestion() {
         button.innerHTML = answer.text;
         button.classList.add("btn");
         answerButtons.appendChild(button);
+        button.addEventListener("click", () => selectAnswer(button, answer.correct));
     });
 }
 
@@ -90,5 +91,15 @@ function resetState() {
     }
 }
 
-// Start the quiz
+function selectAnswer(button, isCorrect) {
+    if (isCorrect) {
+        button.classList.add("correct");
+        score++;
+    } else {
+        button.classList.add("incorrect");
+    }
+    Array.from(answerButtons.children).forEach(btn => btn.disabled = true);
+    nextButton.style.display = "block";
+}
+
 startQuiz();

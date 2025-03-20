@@ -61,7 +61,15 @@ body{
     display: none;
 }
 
+.correct {
+    background-color: #4CAF50; /* Green for correct answers */
+    color: white;
+}
 
+.incorrect {
+    background-color: #f44336; /* Red for incorrect answers */
+    color: white;
+}
 
 
 
