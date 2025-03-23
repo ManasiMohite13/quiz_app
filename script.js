@@ -42,9 +42,11 @@ const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
+let score = 0;
 
 function startQuiz() {
     currentQuestionIndex = 0;
+    score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
 }
@@ -79,6 +81,7 @@ function selectAnswer(e) {
     const isCorrect = selectedBtn.dataset.correct === "true";
     if (isCorrect) {
         selectedBtn.classList.add("correct");
+        score++;
     } else {
         selectedBtn.classList.add("incorrect");
     }
@@ -97,12 +100,23 @@ function showNextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
+    } else {
+        showScore();
     }
+}
+
+function showScore() {
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    nextButton.innerHTML = "Restart";
+    nextButton.style.display = "block";
 }
 
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         showNextQuestion();
+    } else {
+        startQuiz(); // Restart the quiz
     }
 });
 
